@@ -9,7 +9,7 @@ const projects = [
     description:
       "End-to-end incident replay and analysis platform with LLM-powered workflows to classify incident timelines, root causes, and action items in real time.",
     award: "Won $5,000 at Hack the 6ix",
-    tech: ["Ruby on Rails", "OpenAI API", "Next.js", "Prompt Engineering"],
+    tech: ["Ruby on Rails", "OpenAI API", "React", "Next.js", "Prompt Engineering"],
     icon: Trophy,
     demoUrl: "https://www.loom.com/share/3457d014a0d84388a72048c7a0eee908",
     githubUrl: "https://github.com/j-palan/Rootly-Incident-Manager",
@@ -19,7 +19,7 @@ const projects = [
     description:
       "Mobile app to organize university pickup basketball runs with real-time 'I'm Next' queues and team management.",
     stats: "50+ active users",
-    tech: ["React Native", "Expo", "Supabase", "Real-time"],
+    tech: ["React", "React Native", "Expo", "Supabase", "Real-time"],
     icon: Users,
     demoUrl: "https://drive.google.com/file/d/1sAkf7PRO2Ba7KHXL_TQkOKR11Z3xXUcF/view?usp=sharing",
     githubUrl: "https://github.com/j-palan/Runz",
