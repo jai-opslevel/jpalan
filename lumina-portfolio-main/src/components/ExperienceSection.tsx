@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { GlassCard } from "./GlassCard";
 import { ArrowUpRight } from "lucide-react";
+import { animationConfig, linksConfig } from "@/config";
 
 const companyLogos: Record<string, string> = {
   VITALL: "/vitall.png",
@@ -9,9 +10,9 @@ const companyLogos: Record<string, string> = {
 };
 
 const companyUrls: Record<string, string> = {
-  VITALL: "https://www.vitall.com/",
-  LTIMindtree: "https://www.ltimindtree.com/",
-  "Industry 4.0": "https://www.uwindustry4.ca/",
+  VITALL: linksConfig.companies.vitall,
+  LTIMindtree: linksConfig.companies.ltimindtree,
+  "Industry 4.0": linksConfig.companies.industry40,
 };
 
 const experiences = [
@@ -61,7 +62,7 @@ export const ExperienceSection = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: animationConfig.defaultDuration }}
           className="mb-16"
         >
           <span className="section-title">Experience</span>
@@ -72,7 +73,7 @@ export const ExperienceSection = () => {
 
         <div className="space-y-6">
           {experiences.map((exp, index) => (
-            <GlassCard key={exp.company} delay={index * 0.1}>
+            <GlassCard key={exp.company} delay={index * animationConfig.shortDelay}>
               <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-4">
                 <div>
                   <h3 className="text-xl font-semibold mb-1 flex items-center gap-2">

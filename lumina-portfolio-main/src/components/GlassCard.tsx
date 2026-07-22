@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { ReactNode } from "react";
+import { animationConfig, uiConfig } from "@/config";
 
 interface GlassCardProps {
   children: ReactNode;
@@ -18,9 +19,9 @@ export const GlassCard = ({
     <motion.div
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-100px" }}
+      viewport={{ once: true, margin: uiConfig.viewport.margin }}
       transition={{
-        duration: 0.6,
+        duration: animationConfig.defaultDuration,
         delay,
         ease: [0.16, 1, 0.3, 1],
       }}
@@ -28,7 +29,7 @@ export const GlassCard = ({
         hover
           ? {
               y: -4,
-              transition: { duration: 0.25 },
+              transition: { duration: animationConfig.shortDuration },
             }
           : undefined
       }

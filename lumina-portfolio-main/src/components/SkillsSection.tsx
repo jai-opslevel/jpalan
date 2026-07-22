@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { animationConfig } from "@/config";
 
 const skillCategories = [
   {
@@ -27,7 +28,7 @@ export const SkillsSection = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: animationConfig.defaultDuration }}
           className="mb-16"
         >
           <span className="section-title">Skills</span>
@@ -43,7 +44,7 @@ export const SkillsSection = () => {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: catIndex * 0.1 }}
+              transition={{ duration: animationConfig.defaultDuration, delay: catIndex * animationConfig.shortDelay }}
             >
               <h3 className="text-lg font-medium mb-4 text-foreground/90">{category.title}</h3>
               <div className="flex flex-wrap gap-2">
@@ -54,8 +55,8 @@ export const SkillsSection = () => {
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
                     transition={{
-                      duration: 0.4,
-                      delay: catIndex * 0.1 + skillIndex * 0.03,
+                      duration: animationConfig.skillsDuration,
+                      delay: catIndex * animationConfig.shortDelay + skillIndex * 0.03,
                     }}
                     whileHover={{ scale: 1.05 }}
                     className="px-4 py-2 text-sm rounded-xl glass cursor-default"

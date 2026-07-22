@@ -1,5 +1,6 @@
 import { useEffect, useState, useRef } from "react";
 import { motion, useSpring, useMotionValue } from "framer-motion";
+import { animationConfig, uiConfig } from "@/config";
 
 export const CustomCursor = () => {
   const [isHovering, setIsHovering] = useState(false);
@@ -11,8 +12,8 @@ export const CustomCursor = () => {
   const glowX = useMotionValue(0);
   const glowY = useMotionValue(0);
 
-  const springConfig = { damping: 25, stiffness: 400 };
-  const glowSpringConfig = { damping: 50, stiffness: 200 };
+  const springConfig = { damping: animationConfig.spring.cursorDamping, stiffness: animationConfig.spring.cursorStiffness };
+  const glowSpringConfig = { damping: animationConfig.spring.glowDamping, stiffness: animationConfig.spring.glowStiffness };
 
   const cursorXSpring = useSpring(cursorX, springConfig);
   const cursorYSpring = useSpring(cursorY, springConfig);
@@ -85,14 +86,14 @@ export const CustomCursor = () => {
         <motion.div
           className="relative -translate-x-1/2 -translate-y-1/2 bg-foreground rounded-full"
           animate={{
-            width: isHovering ? 48 : isClicking ? 8 : 12,
-            height: isHovering ? 48 : isClicking ? 8 : 12,
-            opacity: isHovering ? 0.8 : 1,
+            width: isHovering ? uiConfig.cursor.hoverSize : isClicking ? uiConfig.cursor.clickSize : uiConfig.cursor.defaultSize,
+            height: isHovering ? uiConfig.cursor.hoverSize : isClicking ? uiConfig.cursor.clickSize : uiConfig.cursor.defaultSize,
+            opacity: isHovering ? uiConfig.cursor.hoverOpacity : uiConfig.cursor.defaultOpacity,
           }}
           transition={{
             type: "spring",
-            damping: 20,
-            stiffness: 300,
+            damping: animationConfig.spring.transitionDamping,
+            stiffness: animationConfig.spring.transitionStiffness,
           }}
         />
       </motion.div>
@@ -111,14 +112,14 @@ export const CustomCursor = () => {
             background: "radial-gradient(circle, hsl(210 100% 60% / 0.15) 0%, transparent 70%)",
           }}
           animate={{
-            width: isHovering ? 200 : 120,
-            height: isHovering ? 200 : 120,
-            opacity: isHovering ? 0.8 : 0.4,
+            width: isHovering ? uiConfig.cursor.glowHoverSize : uiConfig.cursor.glowDefaultSize,
+            height: isHovering ? uiConfig.cursor.glowHoverSize : uiConfig.cursor.glowDefaultSize,
+            opacity: isHovering ? uiConfig.cursor.glowHoverOpacity : uiConfig.cursor.glowDefaultOpacity,
           }}
           transition={{
             type: "spring",
-            damping: 30,
-            stiffness: 150,
+            damping: animationConfig.spring.glowEffectDamping,
+            stiffness: animationConfig.spring.glowEffectStiffness,
           }}
         />
       </motion.div>
