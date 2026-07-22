@@ -7,6 +7,7 @@ import { ProjectsSection } from "@/components/ProjectsSection";
 import { SkillsSection } from "@/components/SkillsSection";
 import { ContactSection } from "@/components/ContactSection";
 import { Footer } from "@/components/Footer";
+import { uiConfig } from "@/config";
 
 const Work = () => {
   const location = useLocation();
@@ -21,7 +22,7 @@ const Work = () => {
         if (element) {
           element.scrollIntoView({ behavior: "smooth" });
         }
-      }, 100);
+      }, uiConfig.animation.scrollHashDelay);
     } else {
       // Scroll to top if no hash
       window.scrollTo(0, 0);

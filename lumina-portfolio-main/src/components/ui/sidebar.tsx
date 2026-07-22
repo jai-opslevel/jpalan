@@ -11,13 +11,14 @@ import { Separator } from "@/components/ui/separator";
 import { Sheet, SheetContent } from "@/components/ui/sheet";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
+import { uiConfig } from "@/config";
 
-const SIDEBAR_COOKIE_NAME = "sidebar:state";
-const SIDEBAR_COOKIE_MAX_AGE = 60 * 60 * 24 * 7;
-const SIDEBAR_WIDTH = "16rem";
-const SIDEBAR_WIDTH_MOBILE = "18rem";
-const SIDEBAR_WIDTH_ICON = "3rem";
-const SIDEBAR_KEYBOARD_SHORTCUT = "b";
+const SIDEBAR_COOKIE_NAME = uiConfig.sidebar.cookieName;
+const SIDEBAR_COOKIE_MAX_AGE = uiConfig.sidebar.cookieMaxAge;
+const SIDEBAR_WIDTH = uiConfig.sidebar.width;
+const SIDEBAR_WIDTH_MOBILE = uiConfig.sidebar.widthMobile;
+const SIDEBAR_WIDTH_ICON = uiConfig.sidebar.widthIcon;
+const SIDEBAR_KEYBOARD_SHORTCUT = uiConfig.sidebar.keyboardShortcut;
 
 type SidebarContext = {
   state: "expanded" | "collapsed";

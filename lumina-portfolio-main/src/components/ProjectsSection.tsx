@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { GlassCard } from "./GlassCard";
 import { MagneticButton } from "./MagneticButton";
 import { ArrowUpRight, Trophy, Users, Github, Play } from "lucide-react";
+import { projectUrls } from "@/config";
 
 const projects = [
   {
@@ -11,8 +12,8 @@ const projects = [
     award: "Won $5,000 at Hack the 6ix",
     tech: ["Ruby on Rails", "OpenAI API", "React", "Next.js", "Prompt Engineering"],
     icon: Trophy,
-    demoUrl: "https://www.loom.com/share/3457d014a0d84388a72048c7a0eee908",
-    githubUrl: "https://github.com/j-palan/Rootly-Incident-Manager",
+    demoUrl: projectUrls.incidentManager.demo,
+    githubUrl: projectUrls.incidentManager.github,
   },
   {
     title: "Runz",
@@ -21,8 +22,8 @@ const projects = [
     stats: "50+ active users",
     tech: ["React", "React Native", "Expo", "Supabase", "Real-time"],
     icon: Users,
-    demoUrl: "https://drive.google.com/file/d/1sAkf7PRO2Ba7KHXL_TQkOKR11Z3xXUcF/view?usp=sharing",
-    githubUrl: "https://github.com/j-palan/Runz",
+    demoUrl: projectUrls.runz.demo,
+    githubUrl: projectUrls.runz.github,
   },
 ];
 
