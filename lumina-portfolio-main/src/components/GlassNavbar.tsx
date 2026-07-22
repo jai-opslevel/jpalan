@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Link, useLocation } from "react-router-dom";
 import { MagneticButton } from "./MagneticButton";
+import { personalInfo } from "@/config";
 
 const navItems = [
   { label: "Experience", href: "/work#experience" },
@@ -54,7 +55,7 @@ export const GlassNavbar = () => {
           </div>
 
           {/* CTA */}
-          <MagneticButton href="mailto:j2palan@uwaterloo.ca">
+          <MagneticButton href={`mailto:${personalInfo.email}`}>
             <span className="glass-button text-sm">
               Get in Touch
             </span>

@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Linkedin, Github, Mail } from "lucide-react";
 import { MagneticButton } from "./MagneticButton";
+import { personalInfo, companyUrls } from "@/config";
 
 /** Company link with logo, bold, hover underline */
 const CompanyLink = ({
@@ -91,19 +92,19 @@ export const HeroSection = () => {
           <h1 className="font-caslon text-hero font-semibold tracking-tight leading-[1.1] mb-4">
             <span className="block font-normal text-muted-foreground">Hey, I'm</span>
             <MagneticButton>
-              <span className="block gradient-text-accent cursor-default">Jai Palan</span>
+              <span className="block gradient-text-accent cursor-default">{personalInfo.name}</span>
             </MagneticButton>
           </h1>
           <a
-            href="https://uwaterloo.ca/"
+            href={personalInfo.university.url}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground hover:underline underline-offset-2 transition-colors mb-8"
           >
             <span className="text-lg">Nano-Science + CS @</span>
             <img
-              src="/wloologo.png"
-              alt="University of Waterloo"
+              src={personalInfo.university.logo}
+              alt={personalInfo.university.name}
               className="h-5 object-contain"
             />
             <span className="text-lg">uwaterloo</span>
@@ -124,17 +125,17 @@ export const HeroSection = () => {
               transition={{ duration: 0.5, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
               className="flex items-center gap-2"
             >
-              <MagneticButton href="https://www.linkedin.com/in/jai-palan">
+              <MagneticButton href={personalInfo.social.linkedin}>
                 <div className="w-10 h-10 rounded-full glass flex items-center justify-center hover:bg-white/10 transition-colors">
                   <Linkedin className="w-5 h-5 text-muted-foreground hover:text-foreground transition-colors" />
                 </div>
               </MagneticButton>
-              <MagneticButton href="https://github.com/j-palan">
+              <MagneticButton href={personalInfo.social.github}>
                 <div className="w-10 h-10 rounded-full glass flex items-center justify-center hover:bg-white/10 transition-colors">
                   <Github className="w-5 h-5 text-muted-foreground hover:text-foreground transition-colors" />
                 </div>
               </MagneticButton>
-              <MagneticButton href="mailto:j2palan@uwaterloo.ca">
+              <MagneticButton href={`mailto:${personalInfo.email}`}>
                 <div className="w-10 h-10 rounded-full glass flex items-center justify-center hover:bg-white/10 transition-colors">
                   <Mail className="w-5 h-5 text-muted-foreground hover:text-foreground transition-colors" />
                 </div>
@@ -167,7 +168,7 @@ export const HeroSection = () => {
               <span className="mt-2 shrink-0 w-1.5 h-1.5 rounded-full bg-accent" aria-hidden />
               <span>
                 Startup operator at{" "}
-                <CompanyLink href="https://www.vitall.com/" logo="/vitall.png" name="VITALL" />
+                <CompanyLink href={companyUrls.vitall} logo="/vitall.png" name="VITALL" />
                 , a fast-moving early-stage company, where I owned end-to-end features that cut manual workflows by <Metric>10×</Metric>, saved <Money>$150K+</Money> annually, and supported <Metric>13+</Metric> paying clients, directly contributing to <Money>$130K</Money> in revenue.
               </span>
             </motion.li>
@@ -182,7 +183,7 @@ export const HeroSection = () => {
               <span className="mt-2 shrink-0 w-1.5 h-1.5 rounded-full bg-accent" aria-hidden />
               <span>
                 Enterprise engineering experience at{" "}
-                <CompanyLink href="https://www.ltimindtree.com/" logo="/LTI.png" name="LTIMindtree" />
+                <CompanyLink href={companyUrls.ltimindtree} logo="/LTI.png" name="LTIMindtree" />
                 , working on production systems that process <Metric>100,000+</Metric> financial transactions weekly between Unitrax™ and <Metric>5+</Metric> major financial institutions.
               </span>
             </motion.li>
@@ -198,7 +199,7 @@ export const HeroSection = () => {
               <span>
                 Technical leader at{" "}
                 <CompanyLink
-                  href="https://www.uwindustry4.ca/"
+                  href={companyUrls.industry40}
                   logo="/i4logo.png"
                   name="Industry 4.0"
                   logoClassName="h-5 w-5"
@@ -228,7 +229,7 @@ export const HeroSection = () => {
             className="text-sm text-muted-foreground"
           >
             You can reach out to me at{" "}
-            <span className="text-foreground">j2palan[at]uwaterloo[dot]ca</span>
+            <span className="text-foreground">{personalInfo.email.replace('@', '[at]').replace(/\./g, '[dot]')}</span>
           </motion.p>
         </motion.div>
       </div>

@@ -1,5 +1,6 @@
 import { useEffect, useState, useRef } from "react";
 import { motion, useSpring, useMotionValue } from "framer-motion";
+import { uiConfig } from "@/config";
 
 export const CustomCursor = () => {
   const [isHovering, setIsHovering] = useState(false);
@@ -11,8 +12,8 @@ export const CustomCursor = () => {
   const glowX = useMotionValue(0);
   const glowY = useMotionValue(0);
 
-  const springConfig = { damping: 25, stiffness: 400 };
-  const glowSpringConfig = { damping: 50, stiffness: 200 };
+  const springConfig = { damping: uiConfig.animation.cursorDamping, stiffness: uiConfig.animation.cursorStiffness };
+  const glowSpringConfig = { damping: uiConfig.animation.glowDamping, stiffness: uiConfig.animation.glowStiffness };
 
   const cursorXSpring = useSpring(cursorX, springConfig);
   const cursorYSpring = useSpring(cursorY, springConfig);

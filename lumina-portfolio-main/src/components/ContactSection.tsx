@@ -1,31 +1,32 @@
 import { motion } from "framer-motion";
 import { MagneticButton } from "./MagneticButton";
 import { Mail, Linkedin, Github, Phone } from "lucide-react";
+import { personalInfo } from "@/config";
 
 const links = [
   {
     label: "Email",
-    href: "mailto:j2palan@uwaterloo.ca",
+    href: `mailto:${personalInfo.email}`,
     icon: Mail,
-    value: "j2palan@uwaterloo.ca",
+    value: personalInfo.email,
   },
   {
     label: "LinkedIn",
-    href: "https://www.linkedin.com/in/jai-palan",
+    href: personalInfo.social.linkedin,
     icon: Linkedin,
-    value: "linkedin.com/in/jai-palan",
+    value: personalInfo.social.linkedin.replace('https://', '').replace('www.', ''),
   },
   {
     label: "GitHub",
-    href: "https://github.com/j-palan",
+    href: personalInfo.social.github,
     icon: Github,
-    value: "github.com/j-palan",
+    value: personalInfo.social.github.replace('https://', ''),
   },
   {
     label: "Phone",
-    href: "tel:416-986-3487",
+    href: `tel:${personalInfo.phone}`,
     icon: Phone,
-    value: "416-986-3487",
+    value: personalInfo.phone,
   },
 ];
 

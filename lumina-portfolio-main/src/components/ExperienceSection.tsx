@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { GlassCard } from "./GlassCard";
 import { ArrowUpRight } from "lucide-react";
+import { companyUrls as configCompanyUrls } from "@/config";
 
 const companyLogos: Record<string, string> = {
   VITALL: "/vitall.png",
@@ -9,9 +10,9 @@ const companyLogos: Record<string, string> = {
 };
 
 const companyUrls: Record<string, string> = {
-  VITALL: "https://www.vitall.com/",
-  LTIMindtree: "https://www.ltimindtree.com/",
-  "Industry 4.0": "https://www.uwindustry4.ca/",
+  VITALL: configCompanyUrls.vitall,
+  LTIMindtree: configCompanyUrls.ltimindtree,
+  "Industry 4.0": configCompanyUrls.industry40,
 };
 
 const experiences = [
