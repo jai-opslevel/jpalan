@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Link, useLocation } from "react-router-dom";
 import { MagneticButton } from "./MagneticButton";
+import { animationConfig, linksConfig } from "@/config";
 
 const navItems = [
   { label: "Experience", href: "/work#experience" },
@@ -24,7 +25,7 @@ export const GlassNavbar = () => {
     <motion.header
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+      transition={{ duration: animationConfig.defaultDuration, delay: animationConfig.defaultDelay, ease: [0.16, 1, 0.3, 1] }}
       className="fixed top-0 left-0 right-0 z-50 px-6 py-4"
     >
       <nav className="max-w-5xl mx-auto">
@@ -54,7 +55,7 @@ export const GlassNavbar = () => {
           </div>
 
           {/* CTA */}
-          <MagneticButton href="mailto:j2palan@uwaterloo.ca">
+          <MagneticButton href={`mailto:${linksConfig.social.email}`}>
             <span className="glass-button text-sm">
               Get in Touch
             </span>

@@ -3,11 +3,16 @@ import react from "@vitejs/plugin-react-swc";
 import path from "path";
 import { componentTagger } from "lovable-tagger";
 
+// Server configuration - can be overridden via environment variables
+const getServerConfig = () => ({
+  host: process.env.VITE_JPALAN_SERVER_HOST || "::",
+  port: parseInt(process.env.VITE_JPALAN_SERVER_PORT || "8080", 10),
+});
+
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
   server: {
-    host: "::",
-    port: 8080,
+    ...getServerConfig(),
     hmr: {
       overlay: false,
     },

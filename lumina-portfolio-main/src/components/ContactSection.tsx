@@ -1,31 +1,32 @@
 import { motion } from "framer-motion";
 import { MagneticButton } from "./MagneticButton";
 import { Mail, Linkedin, Github, Phone } from "lucide-react";
+import { animationConfig, linksConfig } from "@/config";
 
 const links = [
   {
     label: "Email",
-    href: "mailto:j2palan@uwaterloo.ca",
+    href: `mailto:${linksConfig.social.email}`,
     icon: Mail,
-    value: "j2palan@uwaterloo.ca",
+    value: linksConfig.social.email,
   },
   {
     label: "LinkedIn",
-    href: "https://www.linkedin.com/in/jai-palan",
+    href: linksConfig.social.linkedin,
     icon: Linkedin,
     value: "linkedin.com/in/jai-palan",
   },
   {
     label: "GitHub",
-    href: "https://github.com/j-palan",
+    href: linksConfig.social.github,
     icon: Github,
     value: "github.com/j-palan",
   },
   {
     label: "Phone",
-    href: "tel:416-986-3487",
+    href: `tel:${linksConfig.social.phone}`,
     icon: Phone,
-    value: "416-986-3487",
+    value: linksConfig.social.phone,
   },
 ];
 
@@ -37,7 +38,7 @@ export const ContactSection = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: animationConfig.defaultDuration }}
           className="mb-12"
         >
           <span className="section-title">Contact</span>
@@ -53,7 +54,7 @@ export const ContactSection = () => {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
+          transition={{ duration: animationConfig.defaultDuration, delay: animationConfig.defaultDelay }}
           className="flex flex-wrap justify-center gap-4"
         >
           {links.map((link, index) => (
@@ -62,7 +63,7 @@ export const ContactSection = () => {
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
+                transition={{ delay: index * animationConfig.shortDelay }}
                 className="glass-card p-4 flex items-center gap-3 min-w-[180px]"
               >
                 <div className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center">

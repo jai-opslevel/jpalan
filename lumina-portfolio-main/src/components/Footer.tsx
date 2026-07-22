@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { animationConfig } from "@/config";
 
 export const Footer = () => {
   return (
@@ -6,7 +7,7 @@ export const Footer = () => {
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.6 }}
+      transition={{ duration: animationConfig.defaultDuration }}
       className="py-12 px-6 border-t border-border/50"
     >
       <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
