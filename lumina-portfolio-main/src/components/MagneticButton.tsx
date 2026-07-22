@@ -1,5 +1,6 @@
 import { useRef, useState } from "react";
 import { motion } from "framer-motion";
+import { MAGNETIC_BUTTON_CONFIG } from "@/config";
 
 interface MagneticButtonProps {
   children: React.ReactNode;
@@ -23,8 +24,8 @@ export const MagneticButton = ({
     if (!ref.current) return;
     const { clientX, clientY } = e;
     const { left, top, width, height } = ref.current.getBoundingClientRect();
-    const x = (clientX - left - width / 2) * 0.3;
-    const y = (clientY - top - height / 2) * 0.3;
+    const x = (clientX - left - width / 2) * MAGNETIC_BUTTON_CONFIG.magnetStrength;
+    const y = (clientY - top - height / 2) * MAGNETIC_BUTTON_CONFIG.magnetStrength;
     setPosition({ x, y });
   };
 
@@ -39,7 +40,7 @@ export const MagneticButton = ({
       onMouseMove={handleMouse}
       onMouseLeave={reset}
       animate={{ x: position.x, y: position.y }}
-      transition={{ type: "spring", stiffness: 350, damping: 15 }}
+      transition={{ type: "spring", stiffness: MAGNETIC_BUTTON_CONFIG.spring.stiffness, damping: MAGNETIC_BUTTON_CONFIG.spring.damping }}
     >
       {children}
     </motion.div>

@@ -11,13 +11,14 @@ import { Separator } from "@/components/ui/separator";
 import { Sheet, SheetContent } from "@/components/ui/sheet";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
+import { SIDEBAR_CONFIG, TOOLTIP_CONFIG } from "@/config";
 
-const SIDEBAR_COOKIE_NAME = "sidebar:state";
-const SIDEBAR_COOKIE_MAX_AGE = 60 * 60 * 24 * 7;
-const SIDEBAR_WIDTH = "16rem";
-const SIDEBAR_WIDTH_MOBILE = "18rem";
-const SIDEBAR_WIDTH_ICON = "3rem";
-const SIDEBAR_KEYBOARD_SHORTCUT = "b";
+const SIDEBAR_COOKIE_NAME = SIDEBAR_CONFIG.cookieName;
+const SIDEBAR_COOKIE_MAX_AGE = SIDEBAR_CONFIG.cookieMaxAge;
+const SIDEBAR_WIDTH = SIDEBAR_CONFIG.width;
+const SIDEBAR_WIDTH_MOBILE = SIDEBAR_CONFIG.widthMobile;
+const SIDEBAR_WIDTH_ICON = SIDEBAR_CONFIG.widthIcon;
+const SIDEBAR_KEYBOARD_SHORTCUT = SIDEBAR_CONFIG.keyboardShortcut;
 
 type SidebarContext = {
   state: "expanded" | "collapsed";
@@ -107,7 +108,7 @@ const SidebarProvider = React.forwardRef<
 
   return (
     <SidebarContext.Provider value={contextValue}>
-      <TooltipProvider delayDuration={0}>
+      <TooltipProvider delayDuration={TOOLTIP_CONFIG.delayDuration}>
         <div
           style={
             {

@@ -1,5 +1,6 @@
 import { useEffect, useState, useRef } from "react";
 import { motion, useSpring, useMotionValue } from "framer-motion";
+import { CURSOR_CONFIG } from "@/config";
 
 export const CustomCursor = () => {
   const [isHovering, setIsHovering] = useState(false);
@@ -11,8 +12,8 @@ export const CustomCursor = () => {
   const glowX = useMotionValue(0);
   const glowY = useMotionValue(0);
 
-  const springConfig = { damping: 25, stiffness: 400 };
-  const glowSpringConfig = { damping: 50, stiffness: 200 };
+  const springConfig = CURSOR_CONFIG.cursorSpring;
+  const glowSpringConfig = CURSOR_CONFIG.glowSpring;
 
   const cursorXSpring = useSpring(cursorX, springConfig);
   const cursorYSpring = useSpring(cursorY, springConfig);
@@ -85,14 +86,14 @@ export const CustomCursor = () => {
         <motion.div
           className="relative -translate-x-1/2 -translate-y-1/2 bg-foreground rounded-full"
           animate={{
-            width: isHovering ? 48 : isClicking ? 8 : 12,
-            height: isHovering ? 48 : isClicking ? 8 : 12,
-            opacity: isHovering ? 0.8 : 1,
+            width: isHovering ? CURSOR_CONFIG.size.hovering : isClicking ? CURSOR_CONFIG.size.clicking : CURSOR_CONFIG.size.default,
+            height: isHovering ? CURSOR_CONFIG.size.hovering : isClicking ? CURSOR_CONFIG.size.clicking : CURSOR_CONFIG.size.default,
+            opacity: isHovering ? CURSOR_CONFIG.opacity.hovering : CURSOR_CONFIG.opacity.default,
           }}
           transition={{
             type: "spring",
-            damping: 20,
-            stiffness: 300,
+            damping: CURSOR_CONFIG.transition.damping,
+            stiffness: CURSOR_CONFIG.transition.stiffness,
           }}
         />
       </motion.div>
@@ -111,14 +112,14 @@ export const CustomCursor = () => {
             background: "radial-gradient(circle, hsl(210 100% 60% / 0.15) 0%, transparent 70%)",
           }}
           animate={{
-            width: isHovering ? 200 : 120,
-            height: isHovering ? 200 : 120,
-            opacity: isHovering ? 0.8 : 0.4,
+            width: isHovering ? CURSOR_CONFIG.glowSize.hovering : CURSOR_CONFIG.glowSize.default,
+            height: isHovering ? CURSOR_CONFIG.glowSize.hovering : CURSOR_CONFIG.glowSize.default,
+            opacity: isHovering ? CURSOR_CONFIG.opacity.glowHovering : CURSOR_CONFIG.opacity.glowDefault,
           }}
           transition={{
             type: "spring",
-            damping: 30,
-            stiffness: 150,
+            damping: CURSOR_CONFIG.glowTransition.damping,
+            stiffness: CURSOR_CONFIG.glowTransition.stiffness,
           }}
         />
       </motion.div>
